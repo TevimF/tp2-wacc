@@ -52,11 +52,20 @@ class TestWacc(unittest.TestCase):
             buscar_selic()
 
     @patch('wacc.urlopen')
-    def test_rejeita_data_futura(self, requisicao):
+    def test_preserva_referencia_posterior_ao_cabecalho(self, requisicao):
         requisicao.return_value = io.BytesIO(json.dumps([
             {'valor': '10', 'data': '31/12/2999'}]).encode())
-        with self.assertRaises(ValueError):
-            buscar_selic()
+        requisicao.return_value.headers = {'Date': 'Tue, 17 Nov 2026 15:00:00 GMT'}
+        self.assertIn('31/12/2999', buscar_selic()[1])
+
+    @patch('wacc.urlopen')
+    def test_captura_independe_do_relogio_local(self, requisicao):
+        requisicao.return_value = io.BytesIO(json.dumps([
+            {'valor': '12.50', 'data': '17/11/2026'}]).encode())
+        requisicao.return_value.headers = {'Date': 'Tue, 17 Nov 2026 15:00:00 GMT'}
+        with patch('wacc.datetime', wraps=__import__('datetime').datetime) as relogio:
+            relogio.now.side_effect = AssertionError('Não deve consultar o relógio local')
+            self.assertEqual(buscar_selic()[0], 12.5)
 
     def test_relatorio(self):
         entradas = dict(capital_proprio=300000, divida=200000, livre_risco=10,

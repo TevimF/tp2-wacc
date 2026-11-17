@@ -62,8 +62,8 @@ def buscar_selic():
         raise ValueError("O Banco Central não retornou observações.")
     valor = float(dados[-1]["valor"])
     referencia = datetime.strptime(dados[-1]["data"], "%d/%m/%Y")
-    if referencia.date() > datetime.now().date():
-        raise ValueError("A data retornada é futura. Confira o relógio e informe a taxa manualmente.")
+    # Preserva a referência publicada pela API, sem compará-la ao relógio local
+    # ou ao cabeçalho HTTP (que pode vir de cache).
     data = referencia.strftime("%d/%m/%Y")
     if not math.isfinite(valor) or valor < 0:
         raise ValueError("O Banco Central retornou uma taxa inválida.")
