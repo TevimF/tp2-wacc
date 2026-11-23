@@ -1,0 +1,111 @@
+TRABALHO 2 — ESTRUTURA DE CAPITAL: FINANCIAMENTO DE UMA FROTA
+Administração Financeira — UFMG — 2026/2
+Estêvão Felipe da Fonseca e João Marcos de Sousa Rezende
+Gerado em: 2026-11-23T14:11:41-03:00
+
+1. PROBLEMA PRÁTICO
+Uma empresa pretende financiar uma frota com recursos próprios e dívida.
+Qual é o custo médio anual dessas fontes de financiamento, e como esse custo
+muda conforme a proporção de dívida?
+Os valores abaixo são premissas de um exemplo, não dados de uma empresa real.
+
+2. DADOS DE ENTRADA
+Capital próprio (E), a valor de mercado: R$ 300.000,00
+Dívida (D), a valor de mercado: R$ 200.000,00
+Taxa livre de risco de referência: 10,00% a.a.
+Prêmio de risco de mercado: 6,00 pontos percentuais a.a.
+Beta das ações (na estrutura informada): 1,20
+Spread de crédito (na estrutura informada): 3,00 pontos percentuais a.a.
+Alíquota corporativa assumida: 30,00%
+Sensibilidade do spread à alavancagem: 6,00 pontos percentuais
+Fonte da taxa de referência: Valor fictício didático de 10% a.a.; não representa a Selic atual.
+Demais entradas: premissas informadas pelo usuário/exemplo didático.
+
+3. WACC DA ESTRUTURA INFORMADA
+Ke = Rf + beta × prêmio de risco = 17,20% a.a.
+Kd = Rf + spread = 13,00% a.a.
+Kd após impostos = Kd × (1 - T) = 9,10% a.a.
+Peso do capital próprio = E / (E + D) = 60,00%
+Peso da dívida = D / (E + D) = 40,00%
+WACC = peso E × Ke + peso D × Kd × (1 - T)
+WACC COM IMPOSTOS = 13,96% a.a.
+Média ponderada sem o ajuste fiscal, mantendo Ke e Kd = 15,52% a.a.
+Efeito isolado do ajuste fiscal = 1,56 pontos percentuais.
+
+4. CURVA DE ESTRUTURA DE CAPITAL
+Beta desalavancado (Hamada): βU = βL / [1 + (1 - T) × D/E] = 0,818
+Para cada proporção de dívida D/(D+E) de 0% a 80%, em passos de 1 p.p.:
+  beta realavancado = βU × [1 + (1 - T) × D/E]
+  spread = base + sensibilidade × (D/(D+E))², com base = 2,04 p.p.
+  (a base reproduz o spread informado na estrutura informada)
+  Ke, Kd e WACC calculados como na seção 3.
+Valores em R$ supõem o mesmo capital total: E + D = R$ 500.000,00.
+
+ D/(D+E)            Dívida   Beta       Ke     Spread       Kd     WACC
+    0,0%           R$ 0,00   0,82   14,91%  2,04 p.p.   12,04%   14,91%
+    5,0%      R$ 25.000,00   0,85   15,09%  2,05 p.p.   12,05%   14,76%
+   10,0%      R$ 50.000,00   0,88   15,29%  2,10 p.p.   12,10%   14,61%
+   15,0%      R$ 75.000,00   0,92   15,52%  2,17 p.p.   12,17%   14,47%
+   20,0%     R$ 100.000,00   0,96   15,77%  2,28 p.p.   12,28%   14,33%
+   25,0%     R$ 125.000,00   1,01   16,05%  2,41 p.p.   12,42%   14,21%
+   30,0%     R$ 150.000,00   1,06   16,38%  2,58 p.p.   12,58%   14,11%
+   35,0%     R$ 175.000,00   1,13   16,76%  2,77 p.p.   12,78%   14,02%
+   40,0%     R$ 200.000,00   1,20   17,20%  3,00 p.p.   13,00%   13,96%  <- informada
+   45,0%     R$ 225.000,00   1,29   17,72%  3,25 p.p.   13,26%   13,92%
+   49,0%     R$ 245.000,00   1,37   18,21%  3,48 p.p.   13,48%   13,91%  <- menor WACC
+   50,0%     R$ 250.000,00   1,39   18,35%  3,54 p.p.   13,54%   13,91%
+   55,0%     R$ 275.000,00   1,52   19,11%  3,85 p.p.   13,86%   13,93%
+   60,0%     R$ 300.000,00   1,68   20,06%  4,20 p.p.   14,20%   13,99%
+   65,0%     R$ 325.000,00   1,88   21,29%  4,58 p.p.   14,57%   14,08%
+   70,0%     R$ 350.000,00   2,15   22,93%  4,98 p.p.   14,98%   14,22%
+   75,0%     R$ 375.000,00   2,54   25,22%  5,42 p.p.   15,42%   14,40%
+   80,0%     R$ 400.000,00   3,11   28,65%  5,88 p.p.   15,88%   14,62%
+
+Estrutura informada: 40,0% de dívida, WACC de 13,96% a.a.
+MENOR WACC DA CURVA: 49% de dívida, WACC de 13,91% a.a.
+Diferença em relação à estrutura informada: 0,05 pontos percentuais.
+
+5. INTERPRETAÇÃO
+O custo médio estimado das fontes de financiamento é 13,96% ao ano.
+O custo do capital próprio representa a remuneração exigida pelos acionistas;
+ele não é um pagamento contratual de juros. O WACC pode servir de taxa de
+desconto para fluxos de caixa livres de projetos com risco compatível com a
+empresa e estrutura de capital estável, conforme o capítulo 12.
+
+Sob estas premissas, a estrutura de menor WACC usa cerca de 49% de
+dívida. Até esse ponto, o benefício fiscal dos juros pesa mais; depois dele, o
+spread crescente, que representa o maior risco de dificuldades financeiras,
+passa a pesar mais (teoria do trade-off, capítulo 15). Sem aumento do spread
+(sensibilidade 0), o WACC cairia continuamente com a dívida, como no modelo de
+Modigliani e Miller com impostos. Perto do mínimo a curva costuma ser achatada:
+estruturas vizinhas têm custos muito parecidos.
+
+6. HIPÓTESES E LIMITAÇÕES
+- Todas as taxas são nominais, anuais e em reais.
+- A Selic, quando capturada, é apenas uma aproximação didática de Rf.
+- Beta, prêmio, spread, sensibilidade e alíquota são hipóteses editáveis, não
+  estimativas oficiais.
+- Kd = Rf + spread é uma simplificação; o custo real depende do novo crédito.
+- O benefício fiscal pressupõe juros dedutíveis e lucro tributável suficiente
+  em todos os níveis de dívida. A alíquota é informada para simulação, sem
+  modelar um regime tributário real.
+- O comparativo sem ajuste fiscal isola apenas esse efeito nas taxas informadas.
+- A fórmula de Hamada supõe beta da dívida igual a zero, enquanto o spread
+  crescente supõe que a dívida fica mais arriscada: é uma simplificação comum
+  em exemplos didáticos.
+- A regra do spread (quadrática) é uma hipótese. A estrutura de menor WACC
+  depende inteiramente dela: não é uma estimativa da estrutura ótima real da
+  empresa. Custos de dificuldades financeiras além do spread (perda de clientes,
+  custos de agência) não são modelados.
+- Este cálculo NÃO demonstra que aumentar a dívida sempre é melhor (capítulo 15).
+- Não há fluxos de caixa do projeto: o WACC sozinho não decide sua viabilidade.
+
+7. REFERÊNCIAS
+Materiais disponibilizados pelo professor Bruno Pérez Ferreira no Moodle:
+Berk, DeMarzo e Harford, Fundamentos de Finanças Empresariais,
+capítulo 12 (Custo de Capital), capítulo 14 (Financiamento por Dívida) e
+capítulo 15 (Estrutura de Capital); exemplo da turma: WACC.html.
+Hamada, R. S. (1972). The Effect of the Firm's Capital Structure on the
+Systematic Risk of Common Stocks. Journal of Finance, 27(2), 435-452.
+Fonte de dados: Banco Central, SGS, série 432 (Meta Selic):
+https://dadosabertos.bcb.gov.br/dataset/432-taxa-de-juros---meta-selic-definida-pelo-copom
