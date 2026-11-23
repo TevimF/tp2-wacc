@@ -70,18 +70,6 @@ Valores saem no padrão brasileiro: R$ 300.000,00 e 13,96%.
 | `test_wacc.py` | Testes automáticos dos cálculos, da curva, da captura e do relatório |
 | `relatorio_exemplo.txt` | Relatório gerado para o exemplo fictício |
 
-## Relação com os critérios de avaliação
-
-| Critério do enunciado | Onde aparece |
-|---|---|
-| Execução da aplicação | `python main.py`: janela com entrada, cálculo, curva e gráfico |
-| Captura de dados | Consulta opcional à API oficial do Banco Central, com data e fonte |
-| Comentários no código | Docstrings e comentários em todos os arquivos (CAPM, Hamada, pesos, impostos, unidades, interface) |
-| Geração de relatórios | TXT com entradas, metodologia, tabela da curva, interpretação e limitações |
-
-Se a API estiver indisponível, o programa informa a falha e permite digitar a taxa.
-Ele não apresenta os valores de exemplo como se tivessem sido capturados.
-
 ## Conferência manual do exemplo
 
 Todos os valores são **fictícios**. A taxa de 10% não representa a Selic atual.
@@ -133,27 +121,6 @@ inteiramente da regra do spread**, que é uma hipótese editável. Por isso o
 resultado ilustra a teoria; não estima a estrutura ótima real de uma empresa.
 A fórmula de Hamada supõe beta da dívida igual a zero, o que é uma simplificação
 diante de um spread crescente.
-
-## Ligação com os materiais da turma
-
-Foram consultados o enunciado, os capítulos 12 a 15 e o exemplo `WACC.html`.
-
-| Material | Uso no trabalho |
-|---|---|
-| Cap. 12 — Determinando o Custo de Capital | CAPM, pesos a mercado e WACC |
-| Cap. 13 — Levantando Capital Social | Contexto do financiamento por capital próprio |
-| Cap. 14 — Financiamento por Dívida | Contexto da fonte de recursos de terceiros |
-| Cap. 15 — Estrutura de Capital | Benefício fiscal, risco da alavancagem e curva do WACC (trade-off) |
-| WACC.html | Referência da turma para CAPM, Kd por spread e ponderação E/D |
-| Hamada (1972), *Journal of Finance* 27(2) | Fórmula do beta realavancado |
-
-A aplicação tem escopo menor que o exemplo do professor: não estima volatilidade
-e a curva depende de uma regra de spread assumida, não de dados de crédito.
-
-O WACC não é uma prestação nem o lucro esperado. É o custo médio exigido pelos
-financiadores. Para avaliar um projeto ainda seriam necessários seus fluxos de
-caixa, com risco e estrutura de capital compatíveis. A alíquota de 30% é uma
-hipótese didática, sem representar um regime tributário brasileiro específico.
 
 ## Roteiro curto para demonstrar
 
